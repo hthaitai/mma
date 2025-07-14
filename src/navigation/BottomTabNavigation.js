@@ -4,6 +4,9 @@ import HomeScreen from '../screens/HomeScreen';
 import ProfileScreen from '../screens/ProfileScreen';
 import Icon from 'react-native-vector-icons/Ionicons';
 import Header from '../components/header';
+import CoachChatScreen from "../screens/CoachChatScreen";
+import NotificationsScreen from "../screens/NotificationsScreen";
+import DashboardScreen from "../screens/DashboardScreen";
 
 const Tab = createBottomTabNavigator();
 
@@ -18,20 +21,29 @@ const BottomTabNavigation = () => {
           let iconName;
 
           switch (route.name) {
-            case 'Home':
-              iconName = 'home-outline';
+            case "Home":
+              iconName = "home-outline";
               break;
-            case 'Plan':
-              iconName = 'list-outline';
+            case "Dashboard":
+              iconName = "stats-chart-outline";
               break;
-            case 'Progress':
-              iconName = 'bar-chart-outline';
+            case "Coach":
+              iconName = "chatbubble-ellipses-outline";
               break;
-            case 'Blog':
-              iconName = 'newspaper-outline';
+            case "Notifications":
+              iconName = "notifications-outline";
               break;
-            case 'Profile':
-              iconName = 'person-outline';
+            case "Plan":
+              iconName = "list-outline";
+              break;
+            case "Progress":
+              iconName = "bar-chart-outline";
+              break;
+            case "Blog":
+              iconName = "newspaper-outline";
+              break;
+            case "Profile":
+              iconName = "person-outline";
               break;
           }
 
@@ -40,6 +52,9 @@ const BottomTabNavigation = () => {
       })}
     >
       <Tab.Screen name="Home" component={HomeScreen} />
+      <Tab.Screen name="Dashboard" component={DashboardScreen} />
+      <Tab.Screen name="Coach" component={CoachChatScreen} options={{ title: 'Tư vấn' }} />
+      <Tab.Screen name="Notifications" component={NotificationsScreen} options={{ title: 'Thông báo' }} />
       <Tab.Screen name="Profile" component={ProfileScreen} />
     </Tab.Navigator>
   );

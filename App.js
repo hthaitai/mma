@@ -1,11 +1,14 @@
-import { NavigationContainer } from '@react-navigation/native';
-import { StyleSheet, Text, View } from 'react-native';
-import BottomTabNavigation from './src/navigation/BottomTabNavigation';
+import { NavigationContainer } from "@react-navigation/native";
+import { StyleSheet, Text, View } from "react-native";
+import TabNavigation from "./src/navigation/TabNavigation";
+import { AuthProvider } from "./src/contexts/AuthContext";
 
 export default function App() {
   return (
-       <NavigationContainer>
-      <BottomTabNavigation />
-    </NavigationContainer>
+    <AuthProvider>
+      <NavigationContainer>
+        <TabNavigation />
+      </NavigationContainer>
+    </AuthProvider>
   );
 }
